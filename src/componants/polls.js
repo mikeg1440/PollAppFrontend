@@ -3,6 +3,7 @@ class Polls{
   constructor(){
     this.polls = []
     this.adapter = new PollsAdapter()
+    this.sideBar = document.querySelector('#leftcolumn')
     this.fetchAndLoadPolls()
     this.setListeners()
   }
@@ -15,8 +16,7 @@ class Polls{
   }
 
   setListeners(){
-    let pollColumn = document.querySelector('#leftcolumn')
-    pollColumn.addEventListener('click', function(e){
+    this.sideBar.addEventListener('click', function(e){
       if (e.target.className == 'pollLink'){
         console.log(`Poll${e.target.dataset.pollid} clicked!`)
       }
@@ -29,9 +29,8 @@ class Polls{
 
   renderLinks(){
     console.log('rendering')
-    let pollColumn = document.querySelector('#leftcolumn')
     this.polls.forEach(poll => {
-      pollColumn.innerHTML += this.pollLink(poll)
+      this.sideBar.innerHTML += this.pollLink(poll)
     })
 
   }
