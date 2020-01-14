@@ -9,34 +9,35 @@
   </head>
   <body>
     <div id="wrapper">
-           <div id="headerwrap">
-           <div id="header">
-               <h1>Poller App Logo</h1>
-           </div>
-           </div>
-           <div id="leftcolumnwrap">
-           <div id="leftcolumn">
-             <h4>Polls</h4>
-           </div>
-           </div>
-           <div id="contentwrap">
-             <div id="content">
+      <div id="headerwrap">
+        <div id="header">
+          <h1>Poller App Logo</h1>
+        </div>
+      </div>
+      <div id="leftcolumnwrap">
+        <div id="leftcolumn">
+          <h4>Polls</h4>
+          <hr>
+        </div>
+      </div>
+      <div id="contentwrap">
+        <div id="content">
 
-               <h1>Welcome to the Main Page!</h1>
-               <h2>Create or take a poll!</h2>
-               <br>
-               <div class='container text-center'>
-                 <button class='btn btn-primary' onclick='createPoll()'>Create a Poll</button>
-                 <button class='btn btn-primary' onclick='takePoll()'>Take a Poll</button>
-                 <button class='btn btn-primary' onclick='viewResults()'>View Poll Results</button>
-               </div>
+          <h1>Welcome to the Main Page!</h1>
+          <h2>Create or take a poll!</h2>
+          <br>
+          <div class='container text-center'>
+            <button class='btn btn-primary' id='createPollBtn' onclick='createPoll()'>Create a Poll</button>
+            <button class='btn btn-primary' onclick='takePoll()'>Take a Poll</button>
+            <button class='btn btn-primary' onclick='viewResults()'>View Poll Results</button>
+          </div>
 
-             </div>
-           </div>
-       </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <script type="text/javascript" src="src/componants/polls.js"></script>
   <script type="text/javascript" src="src/adapters/pollsAdapter.js"></script>
-  <script type="text/javascript" src="src/componants/poll.js"></script>
   <script type="text/javascript" src="src/componants/app.js"></script>
   <script type="text/javascript" src="src/index.js"></script>
 
