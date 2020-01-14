@@ -1,14 +1,7 @@
 @import url("reset.css");
 
-body {
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    color:#333
-}
 
-p {
-    padding: 10px;
-}
+/* STYLES BY ID */
 
 #wrapper {
     margin: 0 auto;
@@ -53,6 +46,18 @@ p {
     border-radius: 10px;
     border: 1px solid #1fb8eb;
     margin: 5px;
+    padding: 1px 5px;
+}
+
+/*  TAG STYLES */
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:#333
+}
+
+p {
+    padding: 10px;
 }
 
 h1{
@@ -64,4 +69,23 @@ h1{
 h2{
   font-size: 2.5em;
   text-align: center;
+}
+
+h4{
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* CLASS STYLES */
+
+.pollLink {
+  background-color: aquamarine;
+  font-weight: bold;
+  padding: 1px 2px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+.pollLink:hover {
+  background-color: #00f7bd;
+  cursor: pointer;
 }
