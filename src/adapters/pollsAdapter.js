@@ -6,4 +6,19 @@ class PollsAdapter{
   getPolls(){
     return fetch(this.baseUrl).then(resp => resp.json())
   }
+
+  submitPoll(data){
+    console.log(data)
+    return fetch(this.baseUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Success:', data);
+    })
+  }
 }
