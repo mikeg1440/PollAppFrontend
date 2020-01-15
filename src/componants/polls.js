@@ -4,6 +4,7 @@ class Polls{
     this.all = []
     this.adapter = new PollsAdapter()
     this.sideList = document.querySelector('#pollListSideBar')
+    this.mainContainer = document.querySelector('#content')
     this.fetchAndLoadPolls()
     this.setListeners()
   }
@@ -26,7 +27,7 @@ class Polls{
   }
 
   showPoll(event){
-    app.mainContent.innerHTML = `<h1>Showing poll with id: ${event.target.dataset.pollid}</h1>`
+    this.mainContainer.innerHTML = `<h1>Showing poll with id: ${event.target.dataset.pollid}</h1>`
   }
 
 }
