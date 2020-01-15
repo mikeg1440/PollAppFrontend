@@ -1,37 +1,32 @@
 
 class Polls{
   constructor(){
-    this.polls = []
+    this.all = []
     this.adapter = new PollsAdapter()
-    this.sideBar = document.querySelector('#leftcolumn')
+    this.sideList = document.querySelector('#pollListSideBar')
     this.fetchAndLoadPolls()
     this.setListeners()
   }
 
+
   fetchAndLoadPolls(){
     this.adapter.getPolls().then(polls => {
-      this.polls = polls
+      polls.forEach(poll => this.all.push(new Poll(poll.id, poll.title, poll.user_id)))
       this.renderLinks()
     })
   }
 
-  setListeners(){
-    this.sideBar.addEventListener('click', function(e){
-      if (e.target.className == 'pollLink'){
-        console.log(`Poll${e.target.dataset.pollid} clicked!`)
-      }
-    })
-  }
-
-  pollLink(poll){
-    return `<b class='pollLink' id='poll-${poll.id}' data-pollId='${poll.id}'>${poll.title}</b><br>`
-  }
 
   renderLinks(){
-    console.log('rendering')
-    this.polls.forEach(poll => {
-      this.sideBar.innerHTML += this.pollLink(poll)
-    })
-
+    this.sideList.innerHTML = this.all.map( poll => poll.renderPollLink()).join('')
   }
+
+  setListeners(){
+    this.sideList.addEventListener('click', (e) => this.showPoll(e))
+  }
+
+  showPoll(event){
+    app.mainContent.innerHTML = `<h1>Showing poll with id: ${event.target.dataset.pollid}</h1>`
+  }
+
 }
