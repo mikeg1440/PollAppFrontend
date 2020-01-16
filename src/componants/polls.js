@@ -12,7 +12,7 @@ class Polls{
 
   fetchAndLoadPolls(){
     this.adapter.getPolls().then(polls => {
-      polls.forEach(poll => this.all.push(new Poll(poll.id, poll.title, poll.user_id)))
+      polls.forEach(poll => this.all.push(new Poll(poll.id, poll.title, poll.author, poll.question, poll.answers)))
       this.renderLinks()
     })
   }
