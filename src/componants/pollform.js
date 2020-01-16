@@ -94,7 +94,6 @@ class PollForm{
   extractResponseData(){
     let form = document.querySelector('form')
     let answ = document.querySelector('input')
-    debugger
     let data = { answer_id: form.elements.answer.value,  poll_id: answ.dataset.pollid}
     return data
   }
