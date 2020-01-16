@@ -27,7 +27,8 @@ class Polls{
   }
 
   showPoll(event){
-    this.mainContainer.innerHTML = `<h1>Showing poll with id: ${event.target.dataset.pollid}</h1>`
+    let poll = this.all.find(poll => poll.id == event.target.dataset.pollid)
+    poll.renderPoll()
   }
 
 }
