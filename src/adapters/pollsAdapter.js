@@ -21,4 +21,19 @@ class PollsAdapter{
       console.log('Success:', data);
     })
   }
+
+  submitResponse(data){
+    console.log(data)
+    return fetch(`${this.bashUrl}/submission`, {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then( resp => resp.json())
+    .then( data => {
+      console.log('Submission Recieved!')
+    })
+  }
 }
