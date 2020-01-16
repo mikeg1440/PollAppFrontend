@@ -1,9 +1,11 @@
 
 class Poll{
-  constructor(id, title, author){
+  constructor(id, title, author, question, answers){
     this.id = id
     this.title = title
     this.author = author
+    this.question = question
+    this.answers = answers
   }
 
   renderPollLink(){
