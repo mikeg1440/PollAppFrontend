@@ -76,7 +76,7 @@ class PollForm{
     })
   }
 
-  extractData(){
+  extractPollData(){
     let form = document.querySelector('form')
     let formEl = form.elements
     let data = {}
