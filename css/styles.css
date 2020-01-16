@@ -12,14 +12,18 @@
     width: 1000px;
     float: left;
     margin: 0 auto;
+    padding: 5px;
 }
 
 #header {
-    height: 75px;
-    background: #21FF21;
+    height: 90px;
+    background: #76d6e6;
     border-radius: 10px;
-    border: 1px solid #0deb0d;
+    /* border: 1px solid #0deb0d; */
+    border: 1px solid #1fb8eb;
     margin: 5px;
+    padding: 5px;
+    display: flex;
 }
 
 #contentwrap {
