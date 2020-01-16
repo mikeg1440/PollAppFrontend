@@ -57,6 +57,8 @@
     border: 1px solid #1fb8eb;
     margin: 5px;
     padding: 1px 5px;
+#deleteAnswer {
+  color: red;
 }
 
 /*  TAG STYLES */
