@@ -24,7 +24,7 @@ class PollsAdapter{
 
   submitResponse(data){
     console.log(data)
-    return fetch(`${this.bashUrl}/submission`, {
+    return fetch(`${this.bashUrl}/${data.poll_id}/submission`, {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',

@@ -41,7 +41,8 @@ class Poll{
     }
 
     container.addEventListener('submit', (e) => {
-      console.log(`Response form submited :: TAG: ${e.target}`)
+      console.log(`Submitting Response`)
+      
     })
   }
 
