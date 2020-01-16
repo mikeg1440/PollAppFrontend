@@ -1,5 +1,5 @@
 @import url("reset.css");
-
+@import url('https://fonts.googleapis.com/css?family=Audiowide&display=swap');
 
 /* STYLES BY ID */
 
@@ -60,10 +60,15 @@ p {
     padding: 10px;
 }
 
+h1,h2 {
+  font-family: 'Audiowide', cursive;
+}
+
 h1{
-  font-size: 3em;
+  font-size: 4em;
   font-weight: bold;
   text-align: center;
+  color: #004077;
 }
 
 h2{
