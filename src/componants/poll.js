@@ -27,18 +27,17 @@ class Poll{
     `
   }
 
-  renderAnswer(content){
-    return `<input type='radio' name='answer' value='${content}'>${content}<br>`
+  renderAnswer(answer){
+    return `<input type='radio' name='answer' data-pollid='${this.id}' value='${answer.id}'>${answer.content}<br>`
   }
 
   renderPoll(){
-    debugger
     let container = document.querySelector('#content')
     container.innerHTML = this.renderPollHeader()
     let answerContainer = document.querySelector('#answerContainer')
 
     for (const answer of this.answers){
-      answerContainer.innerHTML += this.renderAnswer(answer.content)
+      answerContainer.innerHTML += this.renderAnswer(answer)
     }
 
     container.addEventListener('submit', (e) => {
