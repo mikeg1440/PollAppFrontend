@@ -65,12 +65,11 @@ class PollForm{
 
     this.container.addEventListener('submit', (e) => {
       e.preventDefault()
-      debugger
       if (e.target.id == 'pollResponse'){
-        let data = this.extractPollData()
-        app.polls.adapter.submitPoll(data)
-      }else if (e.target.id == 'newPollForm'){
         let data = this.extractResponseData()
+        app.polls.adapter.submitResponse(data).then(console.log('Successfull submitted data!'))
+      }else if (e.target.id == 'newPollForm'){
+        let data = this.extractPollData()
         app.polls.adapter.submitResponse(data)
       }
     })
