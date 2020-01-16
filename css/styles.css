@@ -68,9 +68,9 @@
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
-    color:#333
+    color: #e9ecef;
+    background-color: #1e1d23;
 }
-
 p {
     padding: 10px;
 }
