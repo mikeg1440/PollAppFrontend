@@ -14,15 +14,17 @@ class Poll{
 
   renderPollHeader(){
     return `
-    <form id='pollResponse' class='form-control'>
-      <h1>${this.title}</h1>
+    <form id='pollResponse' class='form-group'>
+      <h2>${this.title}</h2>
       <h4>By ${this.author} </h4>
 
       <h3>${this.question}</h3>
       <div id='answerContainer'>
 
       </div>
-      <button type='submit' id='submitResponse'>Submit</button>
+      <div class='col text-center'>
+        <button type='submit' class='btn btn-success' id='submitResponse'>Submit</button>
+      </div>
     </form>
     `
   }
