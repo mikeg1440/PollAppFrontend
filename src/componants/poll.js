@@ -32,12 +32,18 @@ class Poll{
   }
 
   renderPoll(){
-    app.mainContent.innerHTML = his.renderPollHeader()
+    debugger
+    let container = document.querySelector('#content')
+    container.innerHTML = this.renderPollHeader()
     let answerContainer = document.querySelector('#answerContainer')
 
-    for (const answer in this.answers){
+    for (const answer of this.answers){
       answerContainer.innerHTML += this.renderAnswer(answer.content)
     }
+
+    container.addEventListener('submit', (e) => {
+      console.log(`Response form submited :: TAG: ${e.target}`)
+    })
   }
 
 }
