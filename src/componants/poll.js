@@ -46,7 +46,7 @@ class Poll{
     let resultsBtn = document.querySelector('#viewResults')
 
     resultsBtn.addEventListener('click', (e) => {
-      this.renderResults()
+      this.getAndRenderResults()
     })
 
     // container.addEventListener('submit', (e) => {
@@ -55,12 +55,41 @@ class Poll{
     // })
   }
 
+  renderGraphContainer(){
+    return `
+    <h2>${this.title} Results</h2>
+    <div id='resultGraph' class='container'>
+
+    </div>`
+  }
+
+  renderBar(answer, percentage){
+    return `
+    <p>${answer.content}</p>
+    <div class="barContainer">
+      <div class="resultBar answer${answer.id}" style='width: ${percentage*100}%'>${percentage*100}%</div>
+    </div>
+    `
+  }
+
   renderResults(){
+    debugger
+    app.mainContent.innerHTML = this.renderGraphContainer()
+    this.answers.map(answer => {
+      let percent = this.submissions.filter(submission => submission.answerId == answer.id).length / (this.submissions.length)
+      app.mainContent.innerHTML += this.renderBar(answer, percent)
+    })
+
+  }
+
+  getAndRenderResults(){
     this.submissions = []
     app.polls.adapter.getSubmissions(this.id).then( submissions => {
       console.log(submissions)
-      // this.submissions.push( new Submission(submission))
+      this.submissions = submissions.map( submission => new Submission(submission))
+      this.renderResults()
     })
+
   }
 
 }
