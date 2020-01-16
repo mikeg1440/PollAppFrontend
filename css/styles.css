@@ -33,10 +33,16 @@
 }
 
 #content {
-    background: #FFFFFF;
+    background: #313c65;
+    color: aliceblue;
     border-radius: 10px;
-    border: 1px solid #ebebeb;
+    /* border: 1px solid #ebebeb; */
+    border: 1px solid #1fb8eb;
     margin: 5px;
+    padding: 10px;
+    -webkit-box-shadow: 9px 14px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 14px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 9px 14px 5px 0px rgba(0,0,0,0.75);
 }
 
 #leftcolumnwrap {
