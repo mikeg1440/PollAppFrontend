@@ -52,11 +52,14 @@
 }
 
 #leftcolumn {
-    background: #33CCFF;
+    background: #313c65;
+    color: aliceblue;
     border-radius: 10px;
     border: 1px solid #1fb8eb;
     margin: 5px;
-    padding: 1px 5px;
+    padding: 5px 5px;
+}
+
 #deleteAnswer {
   color: red;
 }
