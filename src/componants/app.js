@@ -20,16 +20,10 @@ class App{
       `
     })
 
-    // viewResultsBtn.addEventListener('click', this.renderResultsList())
   }
 
   renderNewPollForm(){
     this.newForm = new PollForm()
   }
-
-  // renderResultsList(){
-  //
-  // }
-
 
 }
