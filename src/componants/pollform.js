@@ -63,10 +63,16 @@ class PollForm{
       }
     })
 
-    app.mainContent.addEventListener('submit', (e) => {
+    this.container.addEventListener('submit', (e) => {
       e.preventDefault()
-      let data = this.extractData()
-      app.polls.adapter.submitPoll(data)
+      debugger
+      if (e.target.id == 'pollResponse'){
+        let data = this.extractPollData()
+        app.polls.adapter.submitPoll(data)
+      }else if (e.target.id == 'newPollForm'){
+        let data = this.extractResponseData()
+        app.polls.adapter.submitResponse(data)
+      }
     })
   }
 
