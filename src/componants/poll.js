@@ -14,6 +14,7 @@ class Poll{
 
   renderPollHeader(){
     return `
+    <button id='viewResults' data-pollid='${this.id}' class='btn btn-info'>View Poll Results</button>
     <form id='pollResponse' class='form-group'>
       <h2>${this.title}</h2>
       <h4>By ${this.author} </h4>
@@ -42,9 +43,23 @@ class Poll{
       answerContainer.innerHTML += this.renderAnswer(answer)
     }
 
-    container.addEventListener('submit', (e) => {
-      console.log(`Submitting Response`)
-      
+    let resultsBtn = document.querySelector('#viewResults')
+
+    resultsBtn.addEventListener('click', (e) => {
+      this.renderResults()
+    })
+
+    // container.addEventListener('submit', (e) => {
+    //   console.log(`Submitting Response`)
+    //
+    // })
+  }
+
+  renderResults(){
+    this.submissions = []
+    app.polls.adapter.getSubmissions(this.id).then( submissions => {
+      console.log(submissions)
+      // this.submissions.push( new Submission(submission))
     })
   }
 
