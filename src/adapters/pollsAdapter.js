@@ -7,6 +7,10 @@ class PollsAdapter{
     return fetch(this.baseUrl).then(resp => resp.json())
   }
 
+  getSubmissions(pollId){
+    return fetch(`${this.baseUrl}/${pollId}/submissions`).then(resp => resp.json())
+  }
+
   submitPoll(data){
     console.log(data)
     return fetch(this.baseUrl, {
