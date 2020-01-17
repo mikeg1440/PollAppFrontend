@@ -59,11 +59,11 @@ class Poll{
     </div>`
   }
 
-  renderBar(answer, percentage){
+  renderBar(answer, percentage, answerNum){
     return `
     <p>${answer.content}</p>
     <div class="barContainer">
-      <div class="resultBar answer${answer.id}" style='width: ${percentage*100}%'>${percentage*100}%</div>
+      <div class="resultBar answer${answerNum}" style='width: ${percentage}%'>${percentage}%</div>
     </div>
     `
   }
@@ -71,10 +71,12 @@ class Poll{
   renderResults(){
     debugger
     app.mainContent.innerHTML = this.renderGraphContainer()
-    this.answers.map(answer => {
-      let percent = this.submissions.filter(submission => submission.answerId == answer.id).length / (this.submissions.length)
-      app.mainContent.innerHTML += this.renderBar(answer, percent)
-    })
+
+    for (const i in this.answers){
+        let percent = this.submissions.filter(submission => submission.answerId == this.answers[i].id).length / (this.submissions.length)
+        percent = (percent * 100).toFixed(2)
+        app.mainContent.innerHTML += this.renderBar(this.answers[i], percent, parseInt(i)+1)
+    }
 
   }
 
