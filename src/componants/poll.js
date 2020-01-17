@@ -49,10 +49,6 @@ class Poll{
       this.getAndRenderResults()
     })
 
-    // container.addEventListener('submit', (e) => {
-    //   console.log(`Submitting Response`)
-    //
-    // })
   }
 
   renderGraphContainer(){
