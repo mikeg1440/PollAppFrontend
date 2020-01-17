@@ -67,7 +67,10 @@ class PollForm{
       e.preventDefault()
       if (e.target.id == 'pollResponse'){
         let data = this.extractResponseData()
-        app.polls.adapter.submitResponse(data).then(console.log('Successfull submitted data!'))
+        app.polls.adapter.submitResponse(data).then(data => {
+          console.log(`Submitted Response!: ${data}`)
+          app.polls.renderPollFromSubmission(data)
+        })
       }else if (e.target.id == 'newPollForm'){
         let data = this.extractPollData()
         app.polls.adapter.submitResponse(data)
