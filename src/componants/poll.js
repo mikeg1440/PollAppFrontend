@@ -69,7 +69,6 @@ class Poll{
   }
 
   renderResults(){
-    debugger
     app.mainContent.innerHTML = this.renderGraphContainer()
 
     for (const i in this.answers){
