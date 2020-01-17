@@ -1,9 +1,13 @@
 class App{
   constructor(){
+    this.setBindings()
+    this.setListeners()
+  }
+
+  setBindings(){
     this.mainContent = document.querySelector('#content')
     this.leftColumn = document.querySelector('#leftcolumn')
     this.polls = new Polls()
-    this.setListeners()
   }
 
   setListeners(){
