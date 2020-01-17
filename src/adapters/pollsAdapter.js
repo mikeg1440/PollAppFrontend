@@ -22,7 +22,8 @@ class PollsAdapter{
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log('Success:', data);
+      console.log('Success:', data)
+      return data
     })
   }
 
@@ -36,8 +37,9 @@ class PollsAdapter{
       body: JSON.stringify(data),
     })
     .then( resp => resp.json())
-    .then( data => {
-      console.log('Submission Recieved!')
+    .catch((error) => {
+      console.error('Error:', error)
+      alert('Unexpected Error!\n Please Contact Developer!')
     })
   }
 }
