@@ -1,24 +1,27 @@
 
 class Polls{
   constructor(){
-    this.all = []
-    this.adapter = new PollsAdapter()
-    this.sideList = document.querySelector('#pollListSideBar')
-    this.mainContainer = document.querySelector('#content')
+    this.setBindings()
     this.fetchAndLoadPolls()
     this.setListeners()
   }
 
+  setBindings(){
+    this.all = []
+    this.adapter = new PollsAdapter()
+    this.sideList = document.querySelector('#pollListSideBar')
+    this.mainContainer = document.querySelector('#content')
+  }
 
   fetchAndLoadPolls(){
     this.adapter.getPolls().then(polls => {
       polls.forEach(poll => this.all.push(new Poll(poll.id, poll.title, poll.author, poll.question, poll.answers)))
-      this.renderLinks()
+      this.renderPollLinks()
     })
   }
 
 
-  renderLinks(){
+  renderPollLinks(){
     this.sideList.innerHTML = this.all.map( poll => poll.renderPollLink()).join('')
   }
 
