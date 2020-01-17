@@ -34,4 +34,9 @@ class Polls{
     poll.renderPoll()
   }
 
+  renderPollFromSubmission(submission){
+    let poll = this.all.find(poll => poll.id == submission.poll_id)
+    poll.getAndRenderResults()
+  }
+
 }
