@@ -164,12 +164,14 @@ input[type='radio']:checked:after {
   width: 60%;
   border-radius: 5px;
   text-align: center;
+  color: purple;
 }
 
 .txtBoxSmall {
   width: 30%;
   border-radius: 5px;
   text-align: center;
+  color: purple;
 }
 
 /* BAR GRAPH STYLES */
