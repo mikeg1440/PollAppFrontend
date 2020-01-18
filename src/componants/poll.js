@@ -61,9 +61,9 @@ class Poll{
 
   renderBar(answer, percentage, answerNum){
     return `
-    <p>${answer.content}</p>
+    <p><div class='color-box answer${answerNum}'></div>${answer.content}</p>
     <div class="barContainer">
-      <div class="resultBar answer${answerNum}" style='width: ${percentage}%'>${percentage}%</div>
+      <div class='resultBar answer${answerNum}' style='width: ${percentage}%'>${percentage}%</div>
     </div>
     `
   }
