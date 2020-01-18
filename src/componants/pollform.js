@@ -63,6 +63,7 @@ class PollForm{
       }
     })
 
+
     this.container.addEventListener('submit', (e) => {
       e.preventDefault()
       if (e.target.id == 'pollResponse'){
@@ -73,9 +74,11 @@ class PollForm{
         })
       }else if (e.target.id == 'newPollForm'){
         let data = this.extractPollData()
-        app.polls.adapter.submitResponse(data)
+        app.polls.adapter.submitPoll(data)
       }
     })
+
+
   }
 
   extractPollData(){
