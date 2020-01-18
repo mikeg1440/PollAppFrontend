@@ -50,6 +50,10 @@
     width: 150px;
     float: left;
     margin: 0 auto;
+    transition: width 2s;
+}
+#leftcolumnwrap.expand {
+  width: 100%;
 }
 
 #leftcolumn {

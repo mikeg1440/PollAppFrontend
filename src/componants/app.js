@@ -1,5 +1,6 @@
 class App{
   constructor(){
+    this.listeners = []
     this.setBindings()
     this.setListeners()
   }
@@ -10,6 +11,7 @@ class App{
     this.polls = new Polls()
   }
 
+  // SET LISTENERS FOR CLICKS ON THE TWO  BUTTONS IN THE NAV
   setListeners(){
     let newPollBtn = document.querySelector('#createPollBtn')
     let takePollBtn = document.querySelector('#takePollBtn')
@@ -20,12 +22,29 @@ class App{
     })
 
     takePollBtn.addEventListener('mouseup', (e) => {
-      this.mainContent.innerHTML = `
-      <h2>Select a Poll from the list on the side!</h2>
-      <img src='img/left-arrow.png' alt='Arrow pointing left'/>
-      `
+      app.leftColumn.parentNode.classList.add('expand')
+      this.setTestListener()
+
     })
 
+  }
+
+  expandPollList(e){
+    app.leftColumn.parentNode.classList.add('expand')
+    this.setTestListener()
+    document.removeEventListener('mouse')
+  }
+  compressPollList(e){
+    app.leftColumn.parentNode.classList.remove('expand')
+    document.removeEventListener('mousedown', app.listeners.pollListShrink, false)
+  }
+
+  setTestListener(){
+    app.listeners.pollListShrink = document.addEventListener('mousedown', this.compressPollList, false)
+  }
+
+  removeListener(listenerVar){
+    document.removeEventListener('mousedown', listenerVar)
   }
 
   renderNewPollForm(){
