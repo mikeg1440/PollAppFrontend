@@ -79,13 +79,56 @@ class Poll{
 
   }
 
+
   getAndRenderResults(){
     this.submissions = []
     app.polls.adapter.getSubmissions(this.id).then( submissions => {
-      console.log(submissions)
       this.submissions = submissions.map( submission => new Submission(submission))
       this.renderResults()
+      // this.renderPieChart()
     })
+  }
+
+  convertDataToPlot(){
+    let data = []
+    let totalSubmissions = this.submissions.length
+    this.answers.forEach( answer => {
+      let answerPercentage = this.submissions.filter( sub => sub.answerId == answer.id ).length / totalSubmissions
+      data.push({x: answer.content, value: answerPercentage.toFixed(2)})
+    })
+    return data
+  }
+
+  renderPieChart(){
+    let data = this.convertDataToPlot()
+    let chart = anychart.pie()
+
+    chart.title(this.title)
+
+    chart.data(data)
+
+    app.mainContent.innerHTML = '<div id="chartContainer" style="width: 100%; height: 100%"></div>'
+
+    chart.container('chartContainer')
+
+    chart.legend().position("right")
+
+    chart.legend().itemsLayout("vertical")
+
+    chart.sort("desc");
+
+    chart.draw()
+  }
+
+  renderBarChart(){
+    let data = this.convertDataToPlot()
+    let chart = anychart.bar()
+    chart.data(data)
+
+    app.mainContent.innerHTML = '<div id="chartContainer" style="width: 100%; height: 100%"></div>'
+
+    chart.container('chartContainer')
+    chart.draw()
 
   }
 
