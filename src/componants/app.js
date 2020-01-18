@@ -15,7 +15,9 @@ class App{
     let takePollBtn = document.querySelector('#takePollBtn')
     let viewResultsBtn = document.querySelector('#viewResultsBtn')
 
-    newPollBtn.addEventListener('click', this.renderNewPollForm())
+    newPollBtn.addEventListener('click', (e) => {
+      this.renderNewPollForm()
+    })
 
     takePollBtn.addEventListener('mouseup', (e) => {
       this.mainContent.innerHTML = `
