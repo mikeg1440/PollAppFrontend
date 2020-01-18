@@ -195,3 +195,11 @@ input[type='radio']:checked:after {
 .answer4 { background-color: #808080;}
 .answer5 { background-color: #208090;}
 .answer6 { background-color: #222085;}
+.answer7 { background-color: #00c2e2;}
+.answer8 { background-color: #e402f3;}
+
+.color-box {
+  float:left;
+  width:5px;
+  height:5px;
+}
