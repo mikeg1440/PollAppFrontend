@@ -74,7 +74,15 @@ class PollForm{
         })
       }else if (e.target.id == 'newPollForm'){
         let data = this.extractPollData()
-        app.polls.adapter.submitPoll(data)
+        app.polls.adapter.submitPoll(data).then(data => {
+          console.log(`Data: ${data}`)
+          let poll = new Poll(data.id, data.title, data.author, data.question, data.answers)
+          app.polls.all.push(poll)
+          // app.polls.all.push(new Poll(data.id, data.title, data.author, data.question, data.answers))
+          // app.polls.all[-1].renderPoll()
+          poll.renderPoll()
+        }
+        )
       }
     })
 
