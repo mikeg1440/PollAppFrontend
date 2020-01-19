@@ -76,7 +76,8 @@ class Poll{
     </div>`
   }
 
-  renderBar(answer, percentage, answerNum){
+  renderBar(answer, percentage=0, answerNum){
+    if (percentage == "NaN"){ percentage = 0}
     return `
     <p><div class='color-box answer${answerNum}'></div>${answer.content}</p>
     <div class="barContainer">
