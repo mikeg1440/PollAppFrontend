@@ -147,7 +147,15 @@ input[type='radio']:checked:after {
     border: 2px solid white;
 }
 
+
 /* CLASS STYLES */
+
+.btn {
+  border: 1px solid #02ffb9;
+  width: 10em;
+  font-size: 1.25em;
+  font-weight: bold;
+}
 
 .divider{
     width:5px;
