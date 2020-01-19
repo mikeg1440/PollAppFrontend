@@ -66,20 +66,16 @@ class PollForm{
 
     this.container.addEventListener('submit', (e) => {
       e.preventDefault()
+      // WE MAY NOT NEED THIS IF THEN CHECK HERE!!
       if (e.target.id == 'pollResponse'){
-        let data = this.extractResponseData()
-        app.polls.adapter.submitResponse(data).then(data => {
-          console.log(`Submitted Response!: ${data}`)
-          app.polls.renderPollFromSubmission(data)
-        })
+        debugger
       }else if (e.target.id == 'newPollForm'){
         let data = this.extractPollData()
         app.polls.adapter.submitPoll(data).then(data => {
           console.log(`Data: ${data}`)
           let poll = new Poll(data.id, data.title, data.author, data.question, data.answers)
           app.polls.all.push(poll)
-          // app.polls.all.push(new Poll(data.id, data.title, data.author, data.question, data.answers))
-          // app.polls.all[-1].renderPoll()
+          debugger
           poll.renderPoll()
         }
         )
@@ -102,13 +98,6 @@ class PollForm{
     let answerBoxes = form.getElementsByClassName('txtBoxSmall')
 
     for (const elem of answerBoxes){ data['answers_attributes'].push({content: elem.value})}
-    return data
-  }
-
-  extractResponseData(){
-    let form = document.querySelector('form')
-    let answ = document.querySelector('input')
-    let data = { answer_id: form.elements.answer.value,  poll_id: answ.dataset.pollid}
     return data
   }
 
