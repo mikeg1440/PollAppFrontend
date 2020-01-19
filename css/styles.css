@@ -197,7 +197,7 @@ input[type='radio']:checked:after {
 
 /* BAR GRAPH STYLES */
 .barContainer {
-  width: 100%;
+  width: 95%;
   background-color: #88878aa1;
   padding: 4px;
   margin: 5px 20px;
