@@ -24,7 +24,6 @@ class App{
     takePollBtn.addEventListener('mouseup', (e) => {
       app.leftColumn.parentNode.classList.add('expand')
       this.setTestListener()
-
     })
 
   }
