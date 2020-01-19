@@ -147,6 +147,12 @@ input[type='radio']:checked:after {
 
 /* CLASS STYLES */
 
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
 .pollLink {
   background-color: aquamarine;
   color: #313c65;
