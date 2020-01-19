@@ -70,6 +70,9 @@
 }
 
 /*  TAG STYLES */
+nav {
+  padding: 5px 0;
+}
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
