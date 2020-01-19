@@ -49,6 +49,23 @@ class Poll{
       this.getAndRenderResults()
     })
 
+    let submitBtn = document.querySelector('#submitResponse')
+
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+      let data = this.extractResponseData()
+      app.polls.adapter.submitResponse(data).then(data => {
+        console.log(`Submitted Response!: ${data}`)
+        app.polls.renderPollFromSubmission(data)
+      })
+    })
+  }
+
+  extractResponseData(){
+    let form = document.querySelector('form')
+    let answ = document.querySelector('input')
+    let data = { answer_id: form.elements.answer.value,  poll_id: answ.dataset.pollid}
+    return data
   }
 
   renderGraphContainer(){
