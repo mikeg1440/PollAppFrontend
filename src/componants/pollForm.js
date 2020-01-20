@@ -71,11 +71,10 @@ class PollForm{
         debugger
       }else if (e.target.id == 'newPollForm'){
         let data = this.extractPollData()
-        app.polls.adapter.submitPoll(data).then(data => {
+        app.pollsHandler.adapter.submitPoll(data).then(data => {
           console.log(`Data: ${data}`)
           let poll = new Poll(data.id, data.title, data.author, data.question, data.answers)
-          app.polls.all.push(poll)
-          debugger
+          app.pollsHandler.all.push(poll)
           poll.renderPoll()
         }
         )
