@@ -2,30 +2,32 @@
 class PollForm{
   constructor(){
     this.container = document.querySelector('#content')
-    this.render()
+    this.renderForm()
     this.addListeners()
   }
 
-  render(){
+  renderForm(){
     this.container.innerHTML = `
+    <h2>Create a New Poll</h2>
     <form id='newPollForm' class='form-group'>
       <label>Poll Title</label><br>
-      <input type='text' name='title' class='txtBoxMed' /><br>
+      <input type='text' name='title' class='txtBoxMed' placeholder='Title'/><br>
 
       <label>Poll Author</label><br>
-      <input type='text' name='author' class='txtBoxMed' /><br>
+      <input type='text' name='author' class='txtBoxMed' placeholder='Author'/><br>
 
       <label>Question</label><br>
-      <input type='text' name='question' class='txtBoxMed' /><br>
+      <input type='text' name='question' class='txtBoxMed' placeholder='Question'/><br>
 
-      <label>Possible Responses</label><br>
+      <label>Possible Answers</label><br>
       <div id='answerContainer'>
-        <input type='text' name='answer' class='txtBoxSmall' /><span id='deleteAnswer' class="glyphicon glyphicon-minus"></span> <br>
+        <input type='text' name='answer' class='txtBoxSmall' placeholder='Answer'/><span id='deleteAnswer' class="glyphicon glyphicon-minus"></span> <br>
 
       </div>
 
-      <button type='submit' class='btn btn-success'>Create Poll</button>
-
+      <div class='float-right'>
+        <button type='submit' class='btn btn-success'>Create Poll</button>
+      </div>
     </form>
 
     <button type="button" class="btn btn-info btn-sm" id='addAnswer'>
@@ -39,6 +41,7 @@ class PollForm{
     newAnswer.type = 'text'
     newAnswer.classList.add('txtBoxSmall')
     newAnswer.name = 'answer'
+    newAnswer.placeholder = 'Answer'
 
     let answerDiv = document.querySelector('#answerContainer')
     answerDiv.appendChild(newAnswer)
@@ -54,19 +57,15 @@ class PollForm{
   }
 
   addListeners(){
-    this.container.addEventListener('click', (e) => {
-      if (e.target.id == 'addAnswer'){
-        this.renderNewAnswer()
-      }else if (e.target.id == 'deleteAnswer'){
-        e.target.parentNode.removeChild(e.target.previousElementSibling)
-        e.target.parentNode.removeChild(e.target)
-      }
-    })
+    this.addAnswerListeners()
 
+    this.addSubmitListener()
+  }
 
+  addSubmitListener(){
     this.container.addEventListener('submit', (e) => {
       e.preventDefault()
-      // WE MAY NOT NEED THIS IF THEN CHECK HERE!!
+      // WE MAY NOT NEED THIS IF THEN -- CHECK HERE!!
       if (e.target.id == 'pollResponse'){
         debugger
       }else if (e.target.id == 'newPollForm'){
@@ -75,13 +74,26 @@ class PollForm{
           console.log(`Data: ${data}`)
           let poll = new Poll(data.id, data.title, data.author, data.question, data.answers)
           app.pollsHandler.all.push(poll)
+          app.pollsHandler.renderPollLinks()
           poll.renderPoll()
         }
         )
       }
     })
+  }
 
-
+  addAnswerListeners(){
+    this.container.addEventListener('click', (e) => {
+      if (e.target.id == 'addAnswer'){
+        this.renderNewAnswer()
+      }else if (e.target.id == 'deleteAnswer'){
+        e.target.parentNode.removeChild(e.target.previousElementSibling)
+        if (e.target.previousElementSibling){
+          e.target.parentNode.removeChild(e.target.previousElementSibling)
+        }
+        e.target.parentNode.removeChild(e.target)
+      }
+    })
   }
 
   extractPollData(){

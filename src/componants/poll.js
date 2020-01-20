@@ -37,6 +37,7 @@ class Poll{
   renderPoll(){
     let container = document.querySelector('#content')
     container.innerHTML = this.renderPollHeader()
+    
     let answerContainer = document.querySelector('#answerContainer')
 
     for (const answer of this.answers){
