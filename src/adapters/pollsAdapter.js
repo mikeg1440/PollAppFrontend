@@ -20,14 +20,9 @@ class PollsAdapter{
       body: JSON.stringify(data),
     })
     .then((response) => response.json())
-    .then((data) => {
-      console.log('Success:', data)
-      return data
-    })
   }
 
   submitResponse(data){
-    console.log(data)
     return fetch(`${this.baseUrl}/${data.poll_id}/submissions`, {
       method: 'POST',
       headers: {
@@ -36,9 +31,5 @@ class PollsAdapter{
       body: JSON.stringify(data),
     })
     .then( resp => resp.json())
-    .catch((error) => {
-      console.error('Error:', error)
-      alert('Unexpected Error!\n Please Contact Developer!')
-    })
   }
 }
