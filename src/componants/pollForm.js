@@ -71,7 +71,6 @@ class PollForm{
       }else if (e.target.id == 'newPollForm'){
         let data = this.extractPollData()
         app.pollsHandler.adapter.submitPoll(data).then(data => {
-          console.log(`Data: ${data}`)
           let poll = new Poll(data.id, data.title, data.author, data.question, data.answers)
           app.pollsHandler.all.push(poll)
           app.pollsHandler.renderPollLinks()

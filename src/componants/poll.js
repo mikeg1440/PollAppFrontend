@@ -37,7 +37,7 @@ class Poll{
   renderPoll(){
     let container = document.querySelector('#content')
     container.innerHTML = this.renderPollHeader()
-    
+
     let answerContainer = document.querySelector('#answerContainer')
 
     for (const answer of this.answers){
@@ -56,7 +56,6 @@ class Poll{
       e.preventDefault()
       let data = this.extractResponseData()
       app.pollsHandler.adapter.submitResponse(data).then(data => {
-        console.log(`Submitted Response!: ${data}`)
         app.pollsHandler.renderPollFromSubmission(data)
       })
     })

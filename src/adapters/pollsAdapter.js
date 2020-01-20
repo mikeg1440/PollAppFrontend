@@ -12,7 +12,6 @@ class PollsAdapter{
   }
 
   submitPoll(data){
-    console.log(data)
     return fetch(this.baseUrl, {
       method: 'POST',
       headers: {
