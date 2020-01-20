@@ -20,14 +20,19 @@ class PollsHandler{
     })
   }
 
+  setListeners(){
+    this.sideList.addEventListener('click', (e) => {
+      if (e.target.className == 'pollLink'){
+        this.showPoll(e)
+      }
+    })
+  }
+
 
   renderPollLinks(){
     this.sideList.innerHTML = this.all.map( poll => poll.renderPollLink()).join('')
   }
 
-  setListeners(){
-    this.sideList.addEventListener('click', (e) => this.showPoll(e))
-  }
 
   showPoll(event){
     let poll = this.all.find(poll => poll.id == event.target.dataset.pollid)
