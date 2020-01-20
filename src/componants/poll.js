@@ -55,10 +55,43 @@ class Poll{
     submitBtn.addEventListener('click', (e) => {
       e.preventDefault()
       let data = this.extractResponseData()
-      app.pollsHandler.adapter.submitResponse(data).then(data => {
-        app.pollsHandler.renderPollFromSubmission(data)
-      })
+      if (!this.hasTakenPoll()){
+        app.pollsHandler.adapter.submitResponse(data).then(data => {
+          app.pollsHandler.renderPollFromSubmission(data)
+          this.updatePollCookie()
+        })
+      }else {
+        alert("You can only submit a poll once!")
+      }
     })
+  }
+
+  updatePollCookie(){
+    let cookie = this.getCookieByName('submitted')
+    if (cookie){
+      let submittedPollsArray = cookie.split('=')[1].split(',')
+      submittedPollsArray.push(`${this.id}`)
+      document.cookie = `submitted= ${submittedPollsArray.join(',')}`
+    } else{
+      document.cookie = `submitted= ${this.id}`
+    }
+  }
+
+  hasTakenPoll(){
+    let submittedCookie = this.getCookieByName('submitted')
+    if (submittedCookie){
+      let submittedPollIds = submittedCookie.split('=')[1].split(',')
+      if (submittedPollIds.includes(`${this.id}`)){
+        return true
+      }
+    }
+    return false
+  }
+
+  getCookieByName(name){
+    let cookies = document.cookie
+    let cookieArry = cookies.split(';')
+    return cookieArry.find(cookie => cookie.match(/submitted/))
   }
 
   extractResponseData(){
