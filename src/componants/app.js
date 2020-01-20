@@ -8,7 +8,7 @@ class App{
   setBindings(){
     this.mainContent = document.querySelector('#content')
     this.leftColumn = document.querySelector('#leftcolumn')
-    this.polls = new Polls()
+    this.pollsHandler = new PollsHandler()
   }
 
   // SET LISTENERS FOR CLICKS ON THE TWO  BUTTONS IN THE NAV

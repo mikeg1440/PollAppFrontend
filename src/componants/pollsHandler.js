@@ -1,5 +1,5 @@
 
-class Polls{
+class PollsHandler{
   constructor(){
     this.setBindings()
     this.fetchAndLoadPolls()

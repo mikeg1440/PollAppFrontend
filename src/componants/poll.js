@@ -54,9 +54,9 @@ class Poll{
     submitBtn.addEventListener('click', (e) => {
       e.preventDefault()
       let data = this.extractResponseData()
-      app.polls.adapter.submitResponse(data).then(data => {
+      app.pollsHandler.adapter.submitResponse(data).then(data => {
         console.log(`Submitted Response!: ${data}`)
-        app.polls.renderPollFromSubmission(data)
+        app.pollsHandler.renderPollFromSubmission(data)
       })
     })
   }
@@ -100,7 +100,7 @@ class Poll{
 
   getAndRenderResults(){
     this.submissions = []
-    app.polls.adapter.getSubmissions(this.id).then( submissions => {
+    app.pollsHandler.adapter.getSubmissions(this.id).then( submissions => {
       this.submissions = submissions.map( submission => new Submission(submission))
       this.renderResults()
       // this.renderPieChart()
